@@ -1,5 +1,5 @@
 import React,{ Component } from "react";
-import { Card,CardBody,CardText,CardImgOverlay,CardImg, CardTitle } from "reactstrap";
+import { Card,CardBody,CardText,CardImg, CardTitle } from "reactstrap";
 
 class Dishdetail extends Component {
 
@@ -14,6 +14,7 @@ class Dishdetail extends Component {
         );
     }
 
+  
 
     renderDish(dish)
     {
