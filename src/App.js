@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import { BrowserRouter  } from "react-router-dom";
 import Main from './components/MainComponent';
 
 
@@ -8,9 +9,11 @@ import Main from './components/MainComponent';
  const App=()=>{
 
     return (
-    <div className="App">
-      <Main/>
-    </div>
+      <BrowserRouter>
+        <div className="App">
+          <Main/>
+       </div>
+      </BrowserRouter>
     );
   
 }
