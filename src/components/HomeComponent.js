@@ -1,9 +1,10 @@
 import React from 'react';
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle} from 'reactstrap';
-    import { Loading } from './LoadingComponent';
-    
-    function RenderCard({item, isLoading, errMess}) {
+ import { Loading } from './LoadingComponent';
+ import { baseUrl } from '../shared/baseUrl';
+
+function RenderCard({item, isLoading, errMess}) {
     
         if (isLoading) {
             return(
@@ -18,7 +19,7 @@ import { Card, CardImg, CardText, CardBody,
         else 
             return(
                 <Card>
-                    <CardImg src={item.image} alt={item.name} />
+                     <CardImg top src={baseUrl + dish.image} alt={dish.name} />
                     <CardBody>
                     <CardTitle>{item.name}</CardTitle>
                     {item.designation ? <CardSubtitle>{item.designation}</CardSubtitle> : null }
