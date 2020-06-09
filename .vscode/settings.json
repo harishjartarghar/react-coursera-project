@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/965e3543-cbd2-4bd4-9a72-0031cd8a4a2d/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/harishjartarghar",
+    "appService.deploySubpath": "."
+}
