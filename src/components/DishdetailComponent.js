@@ -134,7 +134,7 @@ const Dishdetail=(props)=>{
 
     
     
-    const {dish} = props;
+    
     if (props.isLoading) {
       return(
           <div className="container">

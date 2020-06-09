@@ -1,9 +1,11 @@
 import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { baseUrl } from "../shared/baseUrl";
+import { Loading } from "./LoadingComponent";
+import { Fade, Stagger } from "react-animation-components";
 
 function About(props) {
-const {leaders}=props;
 
     return(
         <div className="container">
@@ -60,37 +62,54 @@ const {leaders}=props;
                     <h2>Corporate Leadership</h2>
                 </div>
                 <div className="col-12">
-                    <RenderLeader  leaders={props.leaders}/>
+                    <RenderLeader  leaders={props.leaders}
+                                   isLoading={props.leaderLoading}
+                                   errMess={props.leaderErrMess}
+                    />
                 </div>
             </div>
         </div>
     );
 }
 
-function RenderLeader({leaders}){
-       const leader=leaders.map(leader=>{
+function RenderLeader({leaders, isLoading, errMess}){
+
+    const leader=leaders.map(leader=>{
 
         return(
+           <Fade in>
+
             <Media className="mt-5">
             <Media left className="mr-5">
-              <Media object src={leader.image} alt={leader.name} />
+            <Media object src={baseUrl + leader.image} alt={leader.name} />
             </Media>
             <Media body>
-              <Media heading>{leader.name}</Media>
-              <p>{leader.designation}</p>
-              {leader.description}
+            <Media heading>{leader.name}</Media>
+            <p>{leader.designation}</p>
+            {leader.description}
             </Media>
-          </Media>
+            </Media>
+           </Fade>
         );
 
-       });
+    });
+    
+    if (isLoading) {
+        return <Loading />;
+      } else if (errMess) {
+        return <h4>{errMess}</h4>;
+      } else
+            return(
+                <div>
+                    <Stagger in>
+                    {leader}
+                    </Stagger>
+                </div>
 
-       return(
-        <div>
-            {leader}
-        </div>
+            );
+          
 
-       );
+      
 
 }
 
